@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.unitycloudware.portal.tutorial.plugins</groupId>
+    <artifactId>ucw-portal-report</artifactId>
+    <name>UCW Report Example</name>
+    <version>1.0.0-SNAPSHOT</version>
+    <description>Report Example Plugin for UCW Portal</description>
+    <packaging>ucw-plugin</packaging>
+    <url>https://unitycloudware.com</url>
+
+	<organization>
+		<name>UCW Industries Ltd.</name>
+		<url>https://www.unitycloudware.com</url>
+	</organization>
+
+	<issueManagement>
+    	<system>JIRA</system>
+    	<url>https://jira.unitycloudware.com/browse/UCW</url>
+    </issueManagement>
+
+    <scm>
+		<connection>scm:git:https://gitlab.unitycloudware.com/ucw/tutorial/ucw-portal-report.git</connection>
+    </scm>
+
+    <developers>
+        <developer>
+            <id>xboot</id>
+            <name>Tomas Hrdlicka</name>
+            <email>tomas@hrdlicka.co.uk</email>
+        </developer>
+    </developers>
+
+    <profiles>
+        <profile>
+            <id>java8-doclint-disabled</id>
+            <activation>
+                <jdk>[1.8,)</jdk>
+            </activation>
+            <properties>
+                <javadoc.opts>-Xdoclint:none</javadoc.opts>
+            </properties>
+        </profile>
+    </profiles>
+
+    <distributionManagement>
+        <repository>
+            <id>ucw-maven-repository</id>
+            <name>UCW Repository - Releases</name>
+            <url>http://maven.unitycloudware.com/repository/releases/</url>
+            <layout>default</layout>
+        </repository>
+        <snapshotRepository>
+            <id>ucw-maven-repository</id>
+            <name>UCW Repository - Snapshots</name>
+            <url>http://maven.unitycloudware.com/repository/snapshots/</url>
+            <layout>default</layout>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>nsys-repository</id>
+            <name>The Nsys Repository</name>
+            <url>http://maven.nsys.org/repository/releases</url>
+        </repository>
+        <repository>
+            <id>nsys-repository-snapshots</id>
+            <name>The Nsys Repository - Snapshots</name>
+            <url>http://maven.nsys.org/repository/snapshots</url>
+        </repository>
+        <repository>
+            <id>ucw-repository</id>
+            <name>The UCW Repository</name>
+            <url>http://maven.unitycloudware.com/repository/releases</url>
+        </repository>
+        <repository>
+            <id>ucw-repository-snapshots</id>
+            <name>The UCW Repository - Snapshots</name>
+            <url>http://maven.unitycloudware.com/repository/snapshots</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>nsys-repository</id>
+            <name>The Nsys Repository</name>
+            <url>http://maven.nsys.org/repository/releases</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>nsys-repository-snapshots</id>
+            <name>The Nsys Repository - Snapshots</name>
+            <url>http://maven.nsys.org/repository/snapshots</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>ucw-repository</id>
+            <name>The UCW Repository</name>
+            <url>http://maven.unitycloudware.com/repository/releases</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>ucw-repository-snapshots</id>
+            <name>The UCW Repository - Snapshots</name>
+            <url>http://maven.unitycloudware.com/repository/snapshots</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <properties>
+		<build.number>1.0.0.0</build.number>
+		<java.version>1.7</java.version>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<junit.version>4.11</junit.version>
+		<log4j.version>1.2.17</log4j.version>
+		<nsys.version>1.0.0-SNAPSHOT</nsys.version>
+		<ucw.version>1.0.0-SNAPSHOT</ucw.version>
+		<ucw.umps.version>1.0.0-SNAPSHOT</ucw.umps.version>
+	</properties>
+
+	<dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-web-api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Nsys dependencies -->
+        <dependency>
+			<groupId>org.nsys</groupId>
+			<artifactId>nsys-core</artifactId>
+            <version>${nsys.version}</version>
+            <scope>provided</scope>
+		</dependency>
+        <dependency>
+			<groupId>org.nsys.portal</groupId>
+			<artifactId>nsys-portal</artifactId>
+            <version>${nsys.version}</version>
+            <scope>provided</scope>
+		</dependency>
+
+		<!-- UCW dependencies -->
+		<dependency>
+			<groupId>com.unitycloudware.core</groupId>
+			<artifactId>ucw-core</artifactId>
+            <version>${ucw.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+            	<groupId>com.unitycloudware.maven.plugins</groupId>
+				<artifactId>ucw-maven-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                	<productName>ucw-portal</productName>
+                	<productVersion>${ucw.version}</productVersion>
+                	<buildNumber>${build.number}</buildNumber> <!-- ${build.number}=${build.version}.${build.counter} -->
+                	<jvmArgs>-Ducw.tutorial.report.debug=false</jvmArgs>
+					<port>9572</port>
+                    <!-- <dbConfigPath>${project.build.directory}/container/ucw1x/conf/database-portal.properties</dbConfigPath> -->
+                	<!-- <nsysConfigPath>${project.build.directory}/container/ucw1x/conf/nsys-portal.cfg</nsysConfigPath> -->
+                	<!-- <log4jConfigPath>${project.build.directory}/container/ucw1x/conf/log4j-portal.xml</log4jConfigPath> -->
+                	<bundleEntries>
+                		<Bundle-Name>${project.artifactId}</Bundle-Name>
+                	</bundleEntries>
+                	<manifestEntries>
+                		<Application-Name>${project.name}</Application-Name>
+						<Nsys-Portal-ApplicationContext>main</Nsys-Portal-ApplicationContext>
+						<Nsys-Portal-ApplicationContext-Name>ucw-report-tutorial</Nsys-Portal-ApplicationContext-Name>
+                	</manifestEntries>
+                </configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+						<configuration>
+							<additionalparam>${javadoc.opts}</additionalparam>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+        </plugins>
+    	<resources>
+    		<resource>
+    			<directory>src/main/resources</directory>
+    			<filtering>true</filtering>
+    		</resource>
+    	</resources>        
+    </build>
+
+</project>

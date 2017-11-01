@@ -1,0 +1,2 @@
+# Internal configuration file for ucw-portal-report
+ucw.report.version=${build.number}

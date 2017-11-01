@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<nsys-plugin key="${project.groupId}.${project.artifactId}" name="${project.name}" plugin-version="1">
+
+    <!-- Plugin Info -->
+
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${build.number}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+    </plugin-info>
+
+    <!-- Plugin Modules -->
+
+    <management-agent key="ucw-report" name="UCW Report"
+                      class="com.unitycloudware.portal.tutorial.report.plugin.ReportPlugin">
+        <dependency>org.nsys.daemon:scheduler</dependency>
+    </management-agent>
+
+    <!-- Main Navigation [BEGIN] -->
+
+    <navigation-section key="ucw-portal-tutorial_nav-main_demo" name="UCW Demo"
+                        location="system.top.navigation.bar/ucw.demo" weight="1000">
+        <label>UCW Demo</label>
+        <description>UCW Demo Examples</description>
+    </navigation-section>
+
+    <navigation-item key="ucw-report_nav-main_report" name="UCW Report"
+                     section="system.top.navigation.bar/ucw.demo" weight="0">
+        <label>UCW Report Management</label>
+        <link>/ucw-report/management</link>
+        <conditions>
+            <condition class="org.nsys.portal.conditions.UserIsLoggedInCondition" />
+        </conditions>
+    </navigation-item>
+
+    <navigation-item key="ucw-report_nav-main_reports_sample" name="UCW Sample Report"
+                     section="system.top.navigation.bar/reports" weight="100">
+        <label>UCW Report - Sample</label>
+        <link>/ucw-report/sample</link>
+        <conditions>
+            <condition class="org.nsys.portal.conditions.UserIsLoggedInCondition" />
+        </conditions>
+    </navigation-item>
+
+    <navigation-item key="ucw-report_nav-main_reports_temperature" name="UCW Temperature Report"
+                     section="system.top.navigation.bar/reports" weight="100">
+        <label>UCW Report - Temperature</label>
+        <link>/ucw-report/temperature</link>
+        <conditions>
+            <condition class="org.nsys.portal.conditions.UserIsLoggedInCondition" />
+        </conditions>
+    </navigation-item>
+
+    <navigation-item key="ucw-report_nav-main_reports_humidity" name="UCW Humidity Report"
+                     section="system.top.navigation.bar/reports" weight="100">
+        <label>UCW Report - Humidity</label>
+        <link>/ucw-report/humidity</link>
+        <conditions>
+            <condition class="org.nsys.portal.conditions.UserIsLoggedInCondition" />
+        </conditions>
+    </navigation-item>
+
+    <!-- Main Navigation [END] -->
+
+    <!-- Navigation 'system.report/ucw.demo' [BEGIN] -->
+
+    <navigation-section key="ucw-portal-tutorial_reports-available" name="UCW Demo Reports Navigation"
+                        location="system.report/ucw.demo" weight="0">
+        <label>UCW Demo Reports</label>
+    </navigation-section>
+
+    <navigation-item key="ucw-report_reports-available_sample" name="UCW Sample Report"
+                     section="system.report/ucw.demo" weight="0">
+        <label>UCW Report - Sample</label>
+        <link>/ucw-report/sample</link>
+    </navigation-item>
+
+    <navigation-item key="ucw-report_reports-available_temperature" name="UCW Temperature Report"
+                     section="system.report/ucw.demo" weight="0">
+        <label>UCW Report - Temperature</label>
+        <link>/ucw-report/temperature</link>
+    </navigation-item>
+
+    <navigation-item key="ucw-report_reports-available_humidity" name="UCW Humidity Report"
+                     section="system.report/ucw.demo" weight="0">
+        <label>UCW Report - Humidity</label>
+        <link>/ucw-report/humidity</link>
+    </navigation-item>
+
+    <!-- Navigation 'system.report/ucw.demo' [END] -->
+
+    <!-- Navigation 'ucw.tutorial.report.header.actions' [BEGIN] -->
+
+    <navigation-section key="ucw-report_report-header-actions" name="UCW Report Header Actions"
+                        location="ucw.tutorial.report.header.actions" weight="0">
+        <label>Report Header Actions</label>
+    </navigation-section>
+
+    <navigation-item key="ucw-report_report-header-actions_mgmt" name="UCW Report Management"
+                     section="ucw.tutorial.report.header.actions" weight="0">
+        <label>Report Management</label>
+        <link>/ucw-report/management</link>
+    </navigation-item>
+
+    <navigation-item key="ucw-report_report-header-actions_admin" name="UCW Portal Administration"
+                     section="ucw.tutorial.report.header.actions" weight="0">
+        <label>Administration</label>
+        <link>/admin</link>
+    </navigation-item>
+
+    <!-- Navigation 'ucw.tutorial.report.header.actions' [END] -->
+
+    <!-- UCW Report Web Resources [BEGIN] -->
+
+    <portal-resource key="ucw-report_management-resources" name="UCW Report Management Web Resources">
+        <context>ucw.report.management</context>
+        <resource type="download" name="report-management.js" location="/resources/js/report-management.js" />
+    </portal-resource>
+
+    <!-- UCW Report Web Resources [END] -->
+
+</nsys-plugin>

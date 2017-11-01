@@ -1,0 +1,3 @@
+$portalResourceManager.requireResourcesForContext("ucw.report.management")
+
+<p>$!{msg}</p>

@@ -1,0 +1,28 @@
+$portalResourceManager.requireResourcesForContext("nsys.portal.chart")
+
+<div class="chart-center">
+    #foreach ($chart in $charts)
+        <div class="aui-group">
+            <div class="aui-item">
+                $!{chart}
+            </div>
+        </div>
+    #end
+    <table class="aui aui-table-interactive aui-table-sortable">
+        <thead>
+        <tr>
+            <th id="data-humidity">Humidity</th>
+            <th id="data-timestamp">Timestamp</th>
+        </tr>
+        </thead>
+        <tbody>
+            #foreach ($d in $data)
+            <tr>
+                <td headers="data-humidity"><span class="aui-lozenge aui-lozenge-current">$!{d.value}%</span></td>
+                <td headers="data-timestamp">$date.format("yyyy-MM-dd HH:mm:ss", $!{d.timestamp})</td>
+            </tr>
+            #end
+        </tbody>
+    </table>
+    <br/><br/><br/>
+</div>

@@ -1,0 +1,11 @@
+$portalResourceManager.requireResourcesForContext("nsys.portal.chart")
+
+<div class="chart-center">
+    #foreach ($chart in $charts)
+        <div class="aui-group">
+            <div class="aui-item">
+                $!{chart}
+            </div>
+        </div>
+    #end
+</div>
