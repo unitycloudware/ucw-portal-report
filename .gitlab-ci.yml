@@ -1,0 +1,52 @@
+image: docker:latest
+
+stages:
+  - build-plugin
+  - deploy-setup
+  - deploy-plugin
+
+variables:
+  BUILD_NUMBER: 1.0.0.$CI_PIPELINE_ID
+  PLUGIN_NAME: ucw-portal-report
+
+before_script:
+  - echo BUILD_NUMBER=$BUILD_NUMBER
+
+build-plugin:
+  image: maven:3-jdk-8
+  stage: build-plugin
+  before_script:
+    - echo BUILD_NUMBER=$BUILD_NUMBER
+    - export PLUGIN_OPTS="-Dbuild.number=${BUILD_NUMBER}"
+  script: mvn clean resources:resources install deploy $PLUGIN_OPTS -U
+  artifacts:
+    paths:
+      - target/$PLUGIN_NAME.jar
+
+deploy-to-prod:
+  stage: deploy-setup
+  environment: prod
+  only:
+    - master
+    - tags
+  when: manual
+  allow_failure: false
+  script:
+    - /bin/true
+
+deploy-to-dev:
+  stage: deploy-setup
+  environment: dev
+  except:
+    - master
+    - tags
+  script:
+    - /bin/true
+
+deploy-plugin:
+  image: ubuntu:16.04
+  stage: deploy-plugin
+  dependencies:
+    - build-plugin
+  script:
+    - /bin/true
