@@ -1,4 +1,4 @@
-/* Copyright 2017 Unity{Cloud}Ware - UCW Industries Ltd. All rights reserved.
+/* Copyright 2017, 2018 Unity{Cloud}Ware - UCW Industries Ltd. All rights reserved.
  */
 
 package com.unitycloudware.portal.tutorial.report.controller.report;
@@ -80,7 +80,7 @@ public class TemperatureReport extends AbstractReportController {
         data.addSeries(
                 getTemperatureData(
                         "temperatureData",
-                        "Temperature",
+                        "DHT22 Sensor # 1",
                         ChartConfig.ChartColor.BLUE));
 
         return data.getSeries();

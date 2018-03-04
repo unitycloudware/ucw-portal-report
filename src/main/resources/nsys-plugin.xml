@@ -52,10 +52,28 @@
         </conditions>
     </navigation-item>
 
+    <navigation-item key="ucw-report_nav-main_reports_temperature2" name="UCW Temperature 2 Report"
+                     section="system.top.navigation.bar/reports" weight="100">
+        <label>UCW Report - Temperature 2</label>
+        <link>/ucw-report/temperature2</link>
+        <conditions>
+            <condition class="org.nsys.portal.conditions.UserIsLoggedInCondition" />
+        </conditions>
+    </navigation-item>
+
     <navigation-item key="ucw-report_nav-main_reports_humidity" name="UCW Humidity Report"
                      section="system.top.navigation.bar/reports" weight="100">
         <label>UCW Report - Humidity</label>
         <link>/ucw-report/humidity</link>
+        <conditions>
+            <condition class="org.nsys.portal.conditions.UserIsLoggedInCondition" />
+        </conditions>
+    </navigation-item>
+
+    <navigation-item key="ucw-report_nav-main_reports_humidity2" name="UCW Humidity 2 Report"
+                     section="system.top.navigation.bar/reports" weight="100">
+        <label>UCW Report - Humidity 2</label>
+        <link>/ucw-report/humidity2</link>
         <conditions>
             <condition class="org.nsys.portal.conditions.UserIsLoggedInCondition" />
         </conditions>
@@ -82,10 +100,22 @@
         <link>/ucw-report/temperature</link>
     </navigation-item>
 
+    <navigation-item key="ucw-report_reports-available_temperature2" name="UCW Temperature 2 Report"
+                     section="system.report/ucw.demo" weight="0">
+        <label>UCW Report - Temperature2</label>
+        <link>/ucw-report/temperature2</link>
+    </navigation-item>
+
     <navigation-item key="ucw-report_reports-available_humidity" name="UCW Humidity Report"
                      section="system.report/ucw.demo" weight="0">
         <label>UCW Report - Humidity</label>
         <link>/ucw-report/humidity</link>
+    </navigation-item>
+
+    <navigation-item key="ucw-report_reports-available_humidity2" name="UCW Humidity 2 Report"
+                     section="system.report/ucw.demo" weight="0">
+        <label>UCW Report - Humidity2</label>
+        <link>/ucw-report/humidity2</link>
     </navigation-item>
 
     <!-- Navigation 'system.report/ucw.demo' [END] -->

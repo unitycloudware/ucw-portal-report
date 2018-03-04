@@ -1,7 +1,9 @@
-/* Copyright 2017 Unity{Cloud}Ware - UCW Industries Ltd. All rights reserved.
+/* Copyright 2017, 2018 Unity{Cloud}Ware - UCW Industries Ltd. All rights reserved.
  */
 
 package com.unitycloudware.portal.tutorial.report.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * Humidity Data
@@ -9,6 +11,7 @@ package com.unitycloudware.portal.tutorial.report.model;
  * @author Tomas Hrdlicka <tomas@hrdlicka.co.uk>
  * @see <a href="http://unitycloudware.com">Unity{Cloud}Ware</a>
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class HumidityData {
     private int value;
     private long timestamp;

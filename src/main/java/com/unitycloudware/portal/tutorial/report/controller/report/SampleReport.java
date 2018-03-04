@@ -1,4 +1,4 @@
-/* Copyright 2017 Unity{Cloud}Ware - UCW Industries Ltd. All rights reserved.
+/* Copyright 2017, 2018 Unity{Cloud}Ware - UCW Industries Ltd. All rights reserved.
  */
 
 package com.unitycloudware.portal.tutorial.report.controller.report;
@@ -64,14 +64,14 @@ public class SampleReport extends AbstractReportController {
 
     @RequestMapping(method = RequestMethod.GET)
     @Override
-    public ModelAndView showReport(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView showReport(final HttpServletRequest request, final HttpServletResponse response) {
         Map<String, Object> context = new HashMap<String, Object>();
         return render(context, request, response);
     }
 
     @RequestMapping(value = "/chart-data", method = RequestMethod.GET)
     @ResponseBody
-    public String getChartData(HttpServletRequest request, HttpServletResponse response) {
+    public String getChartData(final HttpServletRequest request, final HttpServletResponse response) {
         return IOUtils.toString(getClass().getResourceAsStream("/data/sample-chart-data.json"));
     }
 }

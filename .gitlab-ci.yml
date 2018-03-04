@@ -29,7 +29,7 @@ deploy-to-prod:
   only:
     - master
     - tags
-  when: manual
+  ##when: manual
   allow_failure: false
   script:
     - /bin/true

@@ -1,4 +1,4 @@
-/* Copyright 2017 Unity{Cloud}Ware - UCW Industries Ltd. All rights reserved.
+/* Copyright 2017, 2018 Unity{Cloud}Ware - UCW Industries Ltd. All rights reserved.
  */
 
 package com.unitycloudware.portal.tutorial.report.controller.report;
@@ -94,7 +94,7 @@ public class HumidityReport extends AbstractReportController {
         data.addSeries(
                 getHumidityData(
                         "humidityData",
-                        "Humidity",
+                        "DHT22 Sensor # 1",
                         ChartConfig.ChartColor.BLUE,
                         cachedData));
 
