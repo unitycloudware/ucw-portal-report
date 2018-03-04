@@ -186,9 +186,9 @@
                 	<buildNumber>${build.number}</buildNumber> <!-- ${build.number}=${build.version}.${build.counter} -->
                 	<jvmArgs>-Ducw.tutorial.report.debug=false</jvmArgs>
 					<port>9572</port>
-                    <!-- <dbConfigPath>${project.build.directory}/container/ucw1x/conf/database-portal.properties</dbConfigPath> -->
-                	<!-- <nsysConfigPath>${project.build.directory}/container/ucw1x/conf/nsys-portal.cfg</nsysConfigPath> -->
-                	<!-- <log4jConfigPath>${project.build.directory}/container/ucw1x/conf/log4j-portal.xml</log4jConfigPath> -->
+                    <dbConfigPath>${project.build.directory}/conf/database-portal.properties</dbConfigPath>
+                    <!-- <nsysConfigPath>${project.build.directory}/container/ucw1x/conf/nsys-portal.cfg</nsysConfigPath> -->
+                    <log4jConfigPath>${project.build.directory}/conf/log4j-portal.xml</log4jConfigPath>
                 	<bundleEntries>
                 		<Bundle-Name>${project.artifactId}</Bundle-Name>
                 	</bundleEntries>
@@ -217,6 +217,11 @@
 			</plugin>
         </plugins>
     	<resources>
+            <resource>
+                <directory>src/conf</directory>
+                <targetPath>../conf</targetPath>
+                <filtering>true</filtering>
+            </resource>
     		<resource>
     			<directory>src/main/resources</directory>
     			<filtering>true</filtering>

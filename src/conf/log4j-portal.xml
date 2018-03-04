@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE log4j:configuration SYSTEM
+        "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+
+    <appender name="consoleAppender" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%t] %-5p: %m - %c{1}%n" />
+        </layout>
+    </appender>
+
+    <appender name="rollingLogFileAppender" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="${nsys.basedir}/logs/nsys-portal.log" />
+        <param name="DatePattern" value="'.'yyyy-MM-dd" />
+        <param name="Encoding" value="UTF-8" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d [%t] %-5p %c - %m%n" />
+        </layout>
+    </appender>
+
+    <logger name="org.quartz.core">
+        <level value="INFO" />
+    </logger>
+
+    <logger name="org.apache.cxf">
+        <level value="INFO" />
+    </logger>
+
+    <logger name="org.apache.activemq">
+        <level value="INFO" />
+    </logger>
+
+    <logger name="org.apache.velocity">
+        <level value="INFO" />
+    </logger>
+
+    <logger name="org.springframework">
+        <level value="ERROR" />
+    </logger>
+
+    <logger name="org.hibernate">
+        <level value="ERROR" />
+    </logger>
+
+    <logger name="com.mchange">
+        <level value="ERROR" />
+    </logger>
+
+    <logger name="com.hazelcast">
+        <level value="ERROR" />
+    </logger>
+
+    <logger name="org.nsys.portal.servlet.PortalDispatcherServlet">
+        <level value="ERROR" />
+    </logger>
+
+    <root>
+        <priority value="DEBUG" />
+        <appender-ref ref="rollingLogFileAppender" />
+        <appender-ref ref="consoleAppender" />
+    </root>
+
+</log4j:configuration>
